@@ -42,5 +42,4 @@ Users should be able to:
 - Mobile-first workflow
 
 ## Author
-
 - Frontend Mentor - [@Harshitsoni2000](https://www.frontendmentor.io/profile/Harshitsoni2000)
