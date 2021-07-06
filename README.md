@@ -28,7 +28,7 @@ Users should be able to:
 
 ### Links
 
-- [Solution URL](https://github.com/Harshitsoni2000/Fylo-Landing-Page)
+- [Solution URL](https://github.com/Harshitsoni2000/Huddle-Landing-Page-With-Curved-Sections)
 - [Live Site URL](https://harshitsoni2000.github.io/Huddle-Landing-Page-With-Curved-Sections/)
 
 ## My process
