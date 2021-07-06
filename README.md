@@ -29,7 +29,7 @@ Users should be able to:
 ### Links
 
 - [Solution URL](https://github.com/Harshitsoni2000/Fylo-Landing-Page)
-- [Live Site URL](https://harshitsoni2000.github.io/Fylo-Landing-Page-With-2-Column-Layout/)
+- [Live Site URL](https://harshitsoni2000.github.io/Huddle-Landing-Page-With-Curved-Sections/)
 
 ## My process
 
