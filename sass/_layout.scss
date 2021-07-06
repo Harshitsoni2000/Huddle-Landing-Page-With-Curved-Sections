@@ -1,0 +1,191 @@
+.header {
+    display: grid;
+    grid-template: min-content / 0.2fr minmax(min-content, 5fr) 0.2fr;
+
+    & > * {
+        grid-column: 2 / 3;
+    }
+
+    .navigation__section {
+        padding: 4rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__section {
+        display: grid;
+        grid-template: repeat(3, min-content) / 0.6fr minmax(min-content, 4.5fr) 0.6fr;
+
+        & > * {
+            grid-column: 2 / 3;
+        }
+        grid-row-gap: 6rem;
+        justify-items: center;
+        text-align: center;
+
+        &-intro {
+            .para-1 {
+                padding: 0 4%;
+                @include responsive(tab-port) {
+                    padding: 0 15%;
+                }
+                @include responsive(desktop) {
+                    padding: 0 25%;
+                }
+            }
+        }
+
+        &-image {
+            .header-img {
+                width: 100%;
+            }
+        }
+
+        &-statistics {
+            display: flex;
+            flex-direction: column;
+            @include responsive(tab-port) {
+                flex-direction: row;
+            }
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 3%;
+
+            & > * {
+                display: grid;
+                grid-template: repeat(3, min-content) / 1fr max-content 1fr;
+
+                & > * {
+                    grid-column: 2 / 3;
+                }
+
+                .stats-img {
+                    align-self: start;
+                    height: 4rem;
+                    width: 4rem;
+                }
+
+                .para {
+                    font-size: 1.8rem;
+                    color: rgb(150,144,144);
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    position: relative;
+
+    .pattern {
+        @include pattern(url("../images/bg-footer-top-mobile.svg"), bottom);
+        @include responsive(tab-land) {
+            @include pattern(url("../images/bg-footer-top-desktop.svg"), bottom);
+        }
+        position: relative;
+        top: 0.5rem;
+    }
+
+    &-content {
+        padding: 4rem 0;
+        background: var(--color-very-dark-cyan);
+        display: grid;
+        grid-template: repeat(2, min-content) / 0.1fr 1fr 0.1fr;
+
+        & > * {
+            grid-column: 2 / 3;
+        }
+
+        .location {
+            padding-right: 25%;
+
+            &__contact {
+                & > * {
+                    display: flex;
+                    align-items: center;
+
+                    .contact {
+                        margin-right: 1rem;
+                    }
+                }
+            }
+
+            &__social {
+                display: flex;
+                & > * {
+                    font-size: 3rem;
+                    color: #fff;
+                    margin-right: 2rem;
+
+                    &:hover {
+                        color: var(--color-pink);
+                    }
+                }
+            }
+        }
+
+        .newsletter {
+            grid-row: 1 / 2;
+            padding: 1rem 2rem 0;
+            margin-bottom: 8rem;
+
+            .form {
+                display: flex;
+                flex-direction: column;
+
+                & > * {
+                    border-radius: 5px;
+                    border: none;
+                    padding: 1rem 4rem;
+                    margin-bottom: 2rem;
+                }
+
+                &__input {
+                    flex: 1;
+                    padding: 1rem 4rem;
+                    font-family: inherit;
+                    font-weight: inherit;
+                    font-size: 1.4rem;
+
+                    &:focus {
+                        outline: none;
+
+                        &:valid {
+                            border-bottom: 5px solid green;
+                        }
+
+                        &:invalid {
+                            border-bottom: 5px solid red;
+                        }
+                    }
+                }
+
+                .btn {
+                    margin-left: 3rem;
+                    align-self: flex-end;
+                }
+            }
+        }
+        @include responsive(tab-port) {
+            grid-template: min-content / 0.6fr minmax(min-content, 9fr) 0.5fr minmax(min-content, 3fr) 0.6fr;
+
+            .location {
+                grid-column: 2 / 3;
+                padding-right: 0;
+            }
+
+            .newsletter {
+                grid-column: 4 / 5;
+                margin-bottom: 0;
+
+                .form {
+                    flex-direction: row;
+                }
+            }
+        }
+        @include responsive(tab-land) {
+            grid-template: min-content / 0.6fr minmax(min-content, 2fr) 1fr minmax(min-content, 3fr) 0.6fr;
+        }
+    }
+}

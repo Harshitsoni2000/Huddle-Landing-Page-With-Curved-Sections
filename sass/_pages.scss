@@ -1,0 +1,130 @@
+.main {
+    .features {
+        padding: 4rem 0;
+
+        & > * {
+            & > * {
+                display: grid;
+                grid-template-columns: 0.1fr 1fr 0.1fr;
+
+                & > * {
+                    padding: 10rem 0;
+                    grid-column: 2 / 3;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+
+                    .features__image {
+                        flex: 0 0 55%;
+                        order: -1;
+                        display: flex;
+                        justify-content: center;
+                        margin-bottom: 10rem;
+
+                        .illustration {
+                            width: 80%;
+                        }
+                    }
+                    @include responsive(tab-port) {
+                        flex-direction: row;
+                        text-align: left;
+
+                        .features__image {
+                            justify-content: flex-end;
+                            order: 1;
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+                @include responsive(tab-port) {
+                    grid-template-columns: 0.6fr minmax(min-content, 12.5fr) 0.6fr;
+
+                    .conversations {
+                        padding-top: 0;
+                        padding-bottom: 0;
+                        .features__image {
+                            order: -1;
+                            justify-content: flex-start;
+                        }
+                    }
+                }
+                @include responsive(tab-land) {
+                    grid-template-columns: 0.6fr minmax(min-content, 6fr) 0.6fr;
+                }
+            }
+        }
+
+        .grow-top,
+        .grow-bottom,
+        .users-top,
+        .users-bottom {
+            grid-column: 1 / -1;
+        }
+
+        .grow-top {
+            @include pattern(url("../images/bg-section-top-mobile-1.svg"), bottom);
+            @include responsive(tab-land) {
+                @include pattern(url("../images/bg-section-top-desktop-1.svg"), bottom);
+            }
+            position: relative;
+            top: 0.5rem;
+        }
+        .grow-bottom {
+            @include pattern(url("../images/bg-section-bottom-mobile-1.svg"), top);
+            @include responsive(tab-land) {
+                @include pattern(url("../images/bg-section-bottom-desktop-1.svg"), top);
+            }
+            position: relative;
+            bottom: 0.5rem;
+        }
+
+        .users-top {
+            @include pattern(url("../images/bg-section-top-mobile-2.svg"), bottom);
+            @include responsive(tab-land) {
+                @include pattern(url("../images/bg-section-top-desktop-2.svg"), bottom);
+            }
+            position: relative;
+            top: 0.5rem;
+        }
+
+        .users-bottom {
+            @include pattern(url("../images/bg-section-bottom-mobile-2.svg"), top);
+            @include responsive(tab-land) {
+                @include pattern(url("../images/bg-section-bottom-desktop-2.svg"), top);
+            }
+            position: relative;
+            bottom: 0.5rem;
+        }
+
+        .grow__content,
+        .users__content {
+            padding: 0 5%;
+            @include responsive(tab-port) {
+                padding: 0 5% 0 0;
+            }
+        }
+        .grow-background {
+            background: var(--color-very-pale-blue);
+        }
+
+        .users-background {
+            background: var(--color-very-pale-blue);
+        }
+
+        .conversations-background {
+
+            .conversations__content {
+                padding: 0 5%;
+                @include responsive(tab-port) {
+                    padding: 0 0 0 5%;
+                }
+            }
+        }
+    }
+
+    .join-community {
+        text-align: center;
+        padding: 4rem 0 10rem;
+    }
+}

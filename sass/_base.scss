@@ -1,0 +1,198 @@
+
+// Mixins
+@mixin responsive($breakpoint) {
+    @if $breakpoint == tab-port {
+        @media only screen and (min-width: 37.5em) {
+            @content
+        };
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (min-width: 56.25em) {
+            @content
+        };
+    }
+    @if $breakpoint == desktop {
+        @media only screen and (min-width: 75em) {
+            @content
+        };
+    }
+    @if $breakpoint == lg-desktop {
+        @media only screen and (min-width: 112.5em) {
+            @content
+        };
+    }
+}
+
+@mixin pattern($url, $position) {
+    width: 100%;
+    height: 25rem;
+    background: $url no-repeat $position;
+    background-size: 100vw;
+}
+
+//CSS
+:root {
+    --color-pink: hsl(322, 100%, 66%);
+    --color-light-pink: hsl(321, 100%, 78%);
+    --color-light-red: hsl(0, 100%, 63%);
+    --color-very-dark-cyan: hsl(192, 100%, 9%);
+    --color-very-pale-blue: hsl(207, 100%, 98%);
+}
+
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 40%;
+    @include responsive(tab-port) {
+        font-size: 55%;
+    }
+    @include responsive(tab-land) {
+        font-size: 60%;
+    }
+    @include responsive(desktop) {
+        font-size: 65%;
+    }
+    @include responsive(lg-desktop) {
+        font-size: 70%;
+    }
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    // - Weights: 400, 600, 700
+}
+
+::selection {
+    background: var(--color-light-pink);
+    color: var(--color-very-dark-cyan);
+}
+//Typography
+%heading {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.heading-1 {
+    font-size: 6rem;
+    @extend %heading;
+}
+
+.heading-2 {
+    font-size: 4rem;
+    @extend %heading;
+}
+
+.heading-3 {
+    font-size: 3rem;
+    @extend %heading;
+}
+
+.heading-4 {
+    color: var(--color-very-pale-blue);
+    font-size: 2rem;
+    @extend %heading;
+    text-transform: uppercase;
+}
+
+.para-1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.para-2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+
+    &--light {
+        color: var(--color-very-pale-blue);
+    }
+
+    &--dark {
+        color: var(--color-very-dark-cyan);
+
+        &-bold {
+            font-weight: 600;
+        }
+    }
+}
+
+.margin-bottom-1 {
+    margin-bottom: 1rem;
+}
+
+.margin-bottom-2 {
+    margin-bottom: 2rem;
+}
+
+.margin-bottom-3 {
+    margin-bottom: 3rem;
+}
+
+.margin-bottom-4 {
+    margin-bottom: 3rem;
+}
+
+.margin-bottom-6 {
+    margin-bottom: 6rem;
+}
+
+.logo-box {
+    height: 4rem;
+    max-width: 16rem;
+
+    .logo {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.btn {
+    border-radius: 50px;
+    border: none;
+    font-family: inherit;
+    font-weight: 600;
+    box-shadow: 0.2rem 0.2rem 1.2rem rgba(#000, 0.3);
+
+    &--dark,
+    &--light {
+        transition: all 0.3s ease;
+    }
+
+    &--light {
+        padding: 0.8rem 3rem;
+        flex: 0 0 auto;
+        background: transparent;
+        color: var(--color-light-pink);
+        border: 1.5px solid var(--color-light-pink);
+
+        &:hover {
+            background: var(--color-light-pink);
+            color: #fff;
+            box-shadow: 0.1rem 0.3rem 1rem inset var(--color-pink), 0.2rem 0.3rem 2rem inset var(--color-pink);
+        }
+    }
+
+    &--dark {
+        padding: 1.4rem 4rem;
+        font-size: 1.4rem;
+        background: var(--color-pink);
+        color: #fff;
+
+        &:hover {
+            color: var(--color-pink);
+            background: #fff;
+            border: 1.5px solid var(--color-pink);
+            box-shadow: -0.1rem -0.1rem 1rem inset var(--color-light-pink), -0.1rem -0.1rem 1rem inset var(--color-light-pink);
+        }
+    }
+}
